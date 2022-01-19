@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="user4ModelStoreContainer" CdmEntityContainer="dbEntities">
+    <EntitySetMapping Name="CustomColor">
+      <EntityTypeMapping TypeName="user4Model.CustomColor">
+        <MappingFragment StoreEntitySet="CustomColor">
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Metallic" ColumnName="Metallic" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Driver">
+      <EntityTypeMapping TypeName="user4Model.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="LicenceId" ColumnName="LicenceId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="PhotoString" ColumnName="PhotoString" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="PlaceOfWork" ColumnName="PlaceOfWork" />
+          <ScalarProperty Name="ResidenceAddress" ColumnName="ResidenceAddress" />
+          <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+          <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EngineType">
+      <EntityTypeMapping TypeName="user4Model.EngineType">
+        <MappingFragment StoreEntitySet="EngineType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fine">
+      <EntityTypeMapping TypeName="user4Model.Fine">
+        <MappingFragment StoreEntitySet="Fine">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LicenceNum" ColumnName="LicenceNum" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="CarNum" ColumnName="CarNum" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licence">
+      <EntityTypeMapping TypeName="user4Model.Licence">
+        <MappingFragment StoreEntitySet="Licence">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Series" ColumnName="Series" />
+          <ScalarProperty Name="Categories" ColumnName="Categories" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="LicenceDate" ColumnName="LicenceDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenceCategory">
+      <EntityTypeMapping TypeName="user4Model.LicenceCategory">
+        <MappingFragment StoreEntitySet="LicenceCategory">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenceHistory">
+      <EntityTypeMapping TypeName="user4Model.LicenceHistory">
+        <MappingFragment StoreEntitySet="LicenceHistory">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="DateChanged" ColumnName="DateChanged" />
+          <ScalarProperty Name="LicenceId" ColumnName="LicenceId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LicenceNumber" ColumnName="LicenceNumber" />
+          <ScalarProperty Name="LicenceSeries" ColumnName="LicenceSeries" />
+          <ScalarProperty Name="Categories" ColumnName="Categories" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="LicenceDate" ColumnName="LicenceDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegionCode">
+      <EntityTypeMapping TypeName="user4Model.RegionCode">
+        <MappingFragment StoreEntitySet="RegionCode">
+          <ScalarProperty Name="Iso" ColumnName="Iso" />
+          <ScalarProperty Name="OkatoCode" ColumnName="OkatoCode" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="user4Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="user4Model.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
+          <ScalarProperty Name="WeightInKg" ColumnName="WeightInKg" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="MaximumLoad" ColumnName="MaximumLoad" />
+          <ScalarProperty Name="Horsepower" ColumnName="Horsepower" />
+          <ScalarProperty Name="EnginePower" ColumnName="EnginePower" />
+          <ScalarProperty Name="EngineYear" ColumnName="EngineYear" />
+          <ScalarProperty Name="EngineModel" ColumnName="EngineModel" />
+          <ScalarProperty Name="EngineNumber" ColumnName="EngineNumber" />
+          <ScalarProperty Name="VehicleCategory" ColumnName="VehicleCategory" />
+          <ScalarProperty Name="TypeDrive" ColumnName="TypeDrive" />
+          <ScalarProperty Name="EngineTypeId" ColumnName="EngineTypeId" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleHistory">
+      <EntityTypeMapping TypeName="user4Model.VehicleHistory">
+        <MappingFragment StoreEntitySet="VehicleHistory">
+          <ScalarProperty Name="DateChanged" ColumnName="DateChanged" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="LastOwnerId" ColumnName="LastOwnerId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleImage">
+      <EntityTypeMapping TypeName="user4Model.VehicleImage">
+        <MappingFragment StoreEntitySet="VehicleImage">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

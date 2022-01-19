@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A29561D-C956-4E06-8FAB-6C60C89C52CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Session2</RootNamespace>
+    <AssemblyName>Session2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VIN_LIB">
+      <HintPath>..\..\..\..\Desktop\Entregas\Session1\VIN_LIB.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomColor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Db.cs" />
+    <Compile Include="Driver.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EngineType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fine.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadVehicle.Designer.cs">
+      <DependentUpon>FormCadVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectColor.Designer.cs">
+      <DependentUpon>FormSelectColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCommentVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCommentVehicle.Designer.cs">
+      <DependentUpon>FormCommentVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComment.Designer.cs">
+      <DependentUpon>FormComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryVehicle.Designer.cs">
+      <DependentUpon>FormHistoryVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoadImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoadImage.Designer.cs">
+      <DependentUpon>FormLoadImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVehicleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVehicleInfo.Designer.cs">
+      <DependentUpon>FormVehicleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLicenceInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLicenceInfo.Designer.cs">
+      <DependentUpon>FormLicenceInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadLicence.Designer.cs">
+      <DependentUpon>FormCadLicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadDriver.Designer.cs">
+      <DependentUpon>FormCadDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryLicence.Designer.cs">
+      <DependentUpon>FormHistoryLicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGerLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerLicence.Designer.cs">
+      <DependentUpon>FormGerLicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCharts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCharts.Designer.cs">
+      <DependentUpon>FormCharts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrint.Designer.cs">
+      <DependentUpon>FormPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecognizeFine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecognizeFine.Designer.cs">
+      <DependentUpon>FormRecognizeFine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFines.Designer.cs">
+      <DependentUpon>FormFines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGerDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerDriver.Designer.cs">
+      <DependentUpon>FormGerDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Licence.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionCode.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleImage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormCadVehicle.resx">
+      <DependentUpon>FormCadVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectColor.resx">
+      <DependentUpon>FormSelectColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCommentVehicle.resx">
+      <DependentUpon>FormCommentVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormComment.resx">
+      <DependentUpon>FormComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryVehicle.resx">
+      <DependentUpon>FormHistoryVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoadImage.resx">
+      <DependentUpon>FormLoadImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVehicleInfo.resx">
+      <DependentUpon>FormVehicleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLicenceInfo.resx">
+      <DependentUpon>FormLicenceInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadLicence.resx">
+      <DependentUpon>FormCadLicence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadDriver.resx">
+      <DependentUpon>FormCadDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryLicence.resx">
+      <DependentUpon>FormHistoryLicence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGerLicence.resx">
+      <DependentUpon>FormGerLicence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCharts.resx">
+      <DependentUpon>FormCharts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrint.resx">
+      <DependentUpon>FormPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecognizeFine.resx">
+      <DependentUpon>FormRecognizeFine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFines.resx">
+      <DependentUpon>FormFines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGerDriver.resx">
+      <DependentUpon>FormGerDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\driver_license_template.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

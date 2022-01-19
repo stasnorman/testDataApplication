@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="user4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomColor" EntityType="user4Model.CustomColor" />
+    <EntitySet Name="Driver" EntityType="user4Model.Driver" />
+    <EntitySet Name="EngineType" EntityType="user4Model.EngineType" />
+    <EntitySet Name="Fine" EntityType="user4Model.Fine" />
+    <EntitySet Name="Licence" EntityType="user4Model.Licence" />
+    <EntitySet Name="LicenceCategory" EntityType="user4Model.LicenceCategory" />
+    <EntitySet Name="LicenceHistory" EntityType="user4Model.LicenceHistory" />
+    <EntitySet Name="RegionCode" EntityType="user4Model.RegionCode" />
+    <EntitySet Name="User" EntityType="user4Model.User" />
+    <EntitySet Name="Vehicle" EntityType="user4Model.Vehicle" />
+    <EntitySet Name="VehicleHistory" EntityType="user4Model.VehicleHistory" />
+    <AssociationSet Name="FK_Vehicle_CustomColor" Association="user4Model.FK_Vehicle_CustomColor">
+      <End Role="CustomColor" EntitySet="CustomColor" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_Licence" Association="user4Model.FK_Driver_Licence">
+      <End Role="Licence" EntitySet="Licence" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_Driver" Association="user4Model.FK_Vehicle_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleHistory_Driver" Association="user4Model.FK_VehicleHistory_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="VehicleHistory" EntitySet="VehicleHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_EngineType" Association="user4Model.FK_Vehicle_EngineType">
+      <End Role="EngineType" EntitySet="EngineType" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicenceHistory_Licence" Association="user4Model.FK_LicenceHistory_Licence">
+      <End Role="Licence" EntitySet="Licence" />
+      <End Role="LicenceHistory" EntitySet="LicenceHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleHistory_Vehicle" Association="user4Model.FK_VehicleHistory_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="VehicleHistory" EntitySet="VehicleHistory" />
+    </AssociationSet>
+    <EntitySet Name="VehicleImage" EntityType="user4Model.VehicleImage" />
+    <AssociationSet Name="FK_VehicleImage_VehicleImage" Association="user4Model.FK_VehicleImage_VehicleImage">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="VehicleImage" EntitySet="VehicleImage" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CustomColor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Metallic" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ColorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vehicle" Relationship="user4Model.FK_Vehicle_CustomColor" FromRole="CustomColor" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Identifier" />
+    </Key>
+    <Property Name="Identifier" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PassportSeries" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PassportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RegistrationAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ResidenceAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PlaceOfWork" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MobilePhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LicenceId" Type="Int32" />
+    <NavigationProperty Name="Licence" Relationship="user4Model.FK_Driver_Licence" FromRole="Driver" ToRole="Licence" />
+    <NavigationProperty Name="Vehicle" Relationship="user4Model.FK_Vehicle_Driver" FromRole="Driver" ToRole="Vehicle" />
+    <NavigationProperty Name="VehicleHistory" Relationship="user4Model.FK_VehicleHistory_Driver" FromRole="Driver" ToRole="VehicleHistory" />
+  </EntityType>
+  <EntityType Name="EngineType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vehicle" Relationship="user4Model.FK_Vehicle_EngineType" FromRole="EngineType" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Fine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CarNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LicenceNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Licence">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicenceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Categories" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Driver" Relationship="user4Model.FK_Driver_Licence" FromRole="Licence" ToRole="Driver" />
+    <NavigationProperty Name="LicenceHistory" Relationship="user4Model.FK_LicenceHistory_Licence" FromRole="Licence" ToRole="LicenceHistory" />
+  </EntityType>
+  <EntityType Name="LicenceCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LicenceHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicenceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Categories" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LicenceSeries" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LicenceNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LicenceId" Type="Int32" />
+    <Property Name="DateChanged" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Licence" Relationship="user4Model.FK_LicenceHistory_Licence" FromRole="LicenceHistory" ToRole="Licence" />
+  </EntityType>
+  <EntityType Name="RegionCode">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectCode" Type="Int32" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OkatoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Iso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="Color" Type="Int32" Nullable="false" />
+    <Property Name="EngineTypeId" Type="Int32" />
+    <Property Name="TypeDrive" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EngineNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EngineModel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EngineYear" Type="Int32" />
+    <Property Name="EnginePower" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Horsepower" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaximumLoad" Type="Double" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DriverId" Type="Int32" />
+    <Property Name="WeightInKg" Type="Double" Nullable="false" />
+    <NavigationProperty Name="CustomColor" Relationship="user4Model.FK_Vehicle_CustomColor" FromRole="Vehicle" ToRole="CustomColor" />
+    <NavigationProperty Name="Driver" Relationship="user4Model.FK_Vehicle_Driver" FromRole="Vehicle" ToRole="Driver" />
+    <NavigationProperty Name="EngineType" Relationship="user4Model.FK_Vehicle_EngineType" FromRole="Vehicle" ToRole="EngineType" />
+    <NavigationProperty Name="VehicleHistory" Relationship="user4Model.FK_VehicleHistory_Vehicle" FromRole="Vehicle" ToRole="VehicleHistory" />
+    <NavigationProperty Name="VehicleImage" Relationship="user4Model.FK_VehicleImage_VehicleImage" FromRole="Vehicle" ToRole="VehicleImage" />
+    <Property Name="LicencePlate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VehicleHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastOwnerId" Type="Int32" />
+    <Property Name="VehicleId" Type="Int32" />
+    <Property Name="DateChanged" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Driver" Relationship="user4Model.FK_VehicleHistory_Driver" FromRole="VehicleHistory" ToRole="Driver" />
+    <NavigationProperty Name="Vehicle" Relationship="user4Model.FK_VehicleHistory_Vehicle" FromRole="VehicleHistory" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="FK_Vehicle_CustomColor">
+    <End Type="user4Model.CustomColor" Role="CustomColor" Multiplicity="1" />
+    <End Type="user4Model.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomColor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="Color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_Licence">
+    <End Type="user4Model.Licence" Role="Licence" Multiplicity="0..1" />
+    <End Type="user4Model.Driver" Role="Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licence">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="LicenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_Driver">
+    <End Type="user4Model.Driver" Role="Driver" Multiplicity="0..1" />
+    <End Type="user4Model.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Identifier" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleHistory_Driver">
+    <End Type="user4Model.Driver" Role="Driver" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="user4Model.VehicleHistory" Role="VehicleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Identifier" />
+      </Principal>
+      <Dependent Role="VehicleHistory">
+        <PropertyRef Name="LastOwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_EngineType">
+    <End Type="user4Model.EngineType" Role="EngineType" Multiplicity="0..1" />
+    <End Type="user4Model.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EngineType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="EngineTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicenceHistory_Licence">
+    <End Type="user4Model.Licence" Role="Licence" Multiplicity="0..1" />
+    <End Type="user4Model.LicenceHistory" Role="LicenceHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licence">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LicenceHistory">
+        <PropertyRef Name="LicenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleHistory_Vehicle">
+    <End Type="user4Model.Vehicle" Role="Vehicle" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="user4Model.VehicleHistory" Role="VehicleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleHistory">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VehicleImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="VehicleId" Type="Int32" />
+    <NavigationProperty Name="Vehicle" Relationship="user4Model.FK_VehicleImage_VehicleImage" FromRole="VehicleImage" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="FK_VehicleImage_VehicleImage">
+    <End Type="user4Model.Vehicle" Role="Vehicle" Multiplicity="0..1" />
+    <End Type="user4Model.VehicleImage" Role="VehicleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleImage">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

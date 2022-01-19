@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="user4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CustomColor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Metallic" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="ColorName" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Identifier" />
+    </Key>
+    <Property Name="Identifier" Type="int" Nullable="false" />
+    <Property Name="Surname" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="MiddleName" Type="varchar(max)" />
+    <Property Name="PassportSeries" Type="varchar(max)" />
+    <Property Name="PassportNumber" Type="varchar(max)" />
+    <Property Name="PostCode" Type="varchar(max)" />
+    <Property Name="RegistrationAddress" Type="varchar(max)" />
+    <Property Name="ResidenceAddress" Type="varchar(max)" />
+    <Property Name="PlaceOfWork" Type="varchar(max)" />
+    <Property Name="Position" Type="varchar(max)" />
+    <Property Name="MobilePhone" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="PhotoString" Type="varchar(max)" />
+    <Property Name="Photo" Type="image" />
+    <Property Name="Remarks" Type="varchar(max)" />
+    <Property Name="LicenceId" Type="int" />
+  </EntityType>
+  <EntityType Name="EngineType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Fine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CarNum" Type="varchar(max)" />
+    <Property Name="Region" Type="varchar(max)" />
+    <Property Name="LicenceNum" Type="varchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="Photo" Type="varchar(max)" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Licence">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LicenceDate" Type="date" Nullable="false" />
+    <Property Name="ExpireDate" Type="date" Nullable="false" />
+    <Property Name="Categories" Type="varchar" MaxLength="50" />
+    <Property Name="Series" Type="varchar" MaxLength="50" />
+    <Property Name="Number" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LicenceCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="LicenceHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LicenceDate" Type="date" Nullable="false" />
+    <Property Name="ExpireDate" Type="date" Nullable="false" />
+    <Property Name="Categories" Type="varchar(max)" />
+    <Property Name="LicenceSeries" Type="varchar(max)" />
+    <Property Name="LicenceNumber" Type="varchar(max)" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="LicenceId" Type="int" />
+    <Property Name="DateChanged" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="RegionCode">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="SubjectCode" Type="int" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="OkatoCode" Type="varchar" MaxLength="50" />
+    <Property Name="Iso" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Username" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VIN" Type="varchar" MaxLength="50" />
+    <Property Name="Mark" Type="varchar(max)" />
+    <Property Name="Model" Type="varchar(max)" />
+    <Property Name="VehicleType" Type="varchar(max)" />
+    <Property Name="Manufacturer" Type="varchar(max)" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="Color" Type="int" Nullable="false" />
+    <Property Name="EngineTypeId" Type="int" />
+    <Property Name="TypeDrive" Type="varchar(max)" />
+    <Property Name="VehicleCategory" Type="varchar(max)" />
+    <Property Name="EngineNumber" Type="varchar(max)" />
+    <Property Name="EngineModel" Type="varchar(max)" />
+    <Property Name="EngineYear" Type="int" />
+    <Property Name="EnginePower" Type="varchar(max)" />
+    <Property Name="Horsepower" Type="varchar(max)" />
+    <Property Name="MaximumLoad" Type="float" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="DriverId" Type="int" />
+    <Property Name="WeightInKg" Type="float" Nullable="false" />
+    <Property Name="LicencePlate" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="VehicleHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="LastOwnerId" Type="int" />
+    <Property Name="VehicleId" Type="int" />
+    <Property Name="DateChanged" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="image" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Driver_Licence">
+    <End Role="Licence" Type="Self.Licence" Multiplicity="0..1" />
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licence">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="LicenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicenceHistory_Licence">
+    <End Role="Licence" Type="Self.Licence" Multiplicity="0..1" />
+    <End Role="LicenceHistory" Type="Self.LicenceHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licence">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LicenceHistory">
+        <PropertyRef Name="LicenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_CustomColor">
+    <End Role="CustomColor" Type="Self.CustomColor" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomColor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="Color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Identifier" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_EngineType">
+    <End Role="EngineType" Type="Self.EngineType" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EngineType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="EngineTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleHistory_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VehicleHistory" Type="Self.VehicleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Identifier" />
+      </Principal>
+      <Dependent Role="VehicleHistory">
+        <PropertyRef Name="LastOwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleHistory_Vehicle">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VehicleHistory" Type="Self.VehicleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleHistory">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleImage_VehicleImage">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehicleImage" Type="Self.VehicleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleImage">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="user4ModelStoreContainer">
+    <EntitySet Name="CustomColor" EntityType="Self.CustomColor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EngineType" EntityType="Self.EngineType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fine" EntityType="Self.Fine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Licence" EntityType="Self.Licence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LicenceCategory" EntityType="Self.LicenceCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LicenceHistory" EntityType="Self.LicenceHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegionCode" EntityType="Self.RegionCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleHistory" EntityType="Self.VehicleHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleImage" EntityType="Self.VehicleImage" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Driver_Licence" Association="Self.FK_Driver_Licence">
+      <End Role="Licence" EntitySet="Licence" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicenceHistory_Licence" Association="Self.FK_LicenceHistory_Licence">
+      <End Role="Licence" EntitySet="Licence" />
+      <End Role="LicenceHistory" EntitySet="LicenceHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_CustomColor" Association="Self.FK_Vehicle_CustomColor">
+      <End Role="CustomColor" EntitySet="CustomColor" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_Driver" Association="Self.FK_Vehicle_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_EngineType" Association="Self.FK_Vehicle_EngineType">
+      <End Role="EngineType" EntitySet="EngineType" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleHistory_Driver" Association="Self.FK_VehicleHistory_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="VehicleHistory" EntitySet="VehicleHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleHistory_Vehicle" Association="Self.FK_VehicleHistory_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="VehicleHistory" EntitySet="VehicleHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleImage_VehicleImage" Association="Self.FK_VehicleImage_VehicleImage">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="VehicleImage" EntitySet="VehicleImage" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
