@@ -36,7 +36,7 @@ namespace Session2
                     Close();
                 };
 
-                tableLayoutPanel1.Controls.Add(panel);
+                tableLayoutPanel1.Controls.Add(panel2);
             }
         }
     }
